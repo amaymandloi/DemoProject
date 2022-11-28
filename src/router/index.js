@@ -28,11 +28,12 @@ const routes = [
    name : 'DashBoard',
    component : () => import('../views/DashBoard.vue')
 },
+
 {
-   path : '/Table',
-   name : 'Table',
-   component : () => import('../views/Table.vue')
-}
+   path : '/User',
+   name : 'User',
+   component : () => import('../views/User.vue')
+},
 
 ]
 

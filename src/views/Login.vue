@@ -1,6 +1,6 @@
 <template>
-  
   <v-form>
+
     <div class="right-content">
       <v-form id="form" @submit.prevent="fromValidation">
 
@@ -15,13 +15,14 @@
           <v-text-field v-model="password" type="password" id="password" />
           <span v-if="errorPassword" class="error">{{ errorPassword }}</span>
         </div>
+        
         <!-- <v-btn type="submit">Signup</v-btn> -->
         <v-btn color="secondary" small type="submit">Login</v-btn>
       </v-form>
     </div>
 
   </v-form>
-   
+  
 </template>
 
 <script>
@@ -29,7 +30,6 @@ export default {
   name: "Login",
   data() {
     return {
-     
       email: "",
       password: "",
       errorEmail: "",
@@ -38,12 +38,14 @@ export default {
   },
   methods : {
     fromValidation() {
+      const userDetail = JSON.parse(localStorage.getItem(this.email));
+     
       if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)
       ) {
         this.errorEmail = "use @ and .com";
         return;
       }
-      else if (this.email !== localStorage.getItem("email")) {
+      else if (this.email !== userDetail.email) {
         this.errorEmail = "Email does not match";
         return;
       } else {
@@ -54,15 +56,15 @@ export default {
         this.errorPassword = "*** use 8-20 word one is Uppercase and LowerCase also Special Symbol  Password";
         return;
       }
-      else if (this.password !== localStorage.getItem("password")) {
+      else if (this.password !== userDetail.password) {
         this.errorPassword = "Password does not match";
         return;
       } else {
         this.errorPassword = "";
       }
       if(this.email && this.password){
-        console.log("Login is Done");
-        this.$router.push('DashBoard');
+       
+        this.$router.push("DashBoard");
       }
 
     }
@@ -266,5 +268,4 @@ select {
   margin-right: auto;
   margin-top: 20px;
 }
-
 </style>

@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
   <v-container>
     <v-row class="text-center">
       <v-col cols="12">
@@ -94,7 +94,6 @@
 <script>
   export default {
     name: 'HelloWorld',
-
     data: () => ({
       ecosystem: [
         {
@@ -148,4 +147,4 @@
       ],
     }),
   }
-</script> -->
+</script>
